@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+
+</head>
+
+<body style="scroll-behavior: smooth;font-family: 'Merriweather';font-size: 22px;">
+    <header>
+        <nav class="nav" >
+            <div class="container">
+                <div class="logo">
+                    <a href="#"><img src="bugatti2.png" width="50px" height="auto" alt="" ></a>
+                </div>
+                <div id="mainListDiv" class="main_list" style="border-radius: 20px;">
+                    <ul class="navlinks">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Career</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <span class="navTrigger">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </div>
+             <!--scroll indicator-->
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+          </div>
+        </nav>
+        
+    
+        <section class="home">
+            <!--div style="width: 600px ;height: 100%; background-image: url(Untitled-1.png);background-attachment: fixed;background-size: 600px auto; background-repeat: no-repeat;" class="" ></div-->
+             
+        </section>
+       
+    </header>
+        <div style="height: auto;padding-top: 3%;" >
+            <div class="col-lg-7" style="padding: 3%;"> <div style="border-radius: 20px; font-size: 20px;"><h3 style="text-align: center;">BUGATTI CHIRON</h3><p style="opacity: 71%;">The CHIRON is the fastest, most powerful, and exclusive production super sports car in BUGATTI’s history. Its sophisticated design, innovative technology, and iconic, performance-oriented form make it a unique masterpiece of art, form and technique, that pushes boundaries beyond imagination.</p></div></div>
+            <div class="col-lg-5"><img src="bugatti img1.png" width="70%" height="auto"></div>
+           
+        </div>
+        
+<!-- paralax scrolling-->
+<section>
+  <div id="parallax" class="parallax-item">
+    
+  </div>
+  <div class="parallax-item">
+    <div style="width: 100%;height: auto;align-items: center;display: flex;">
+        <button class="prev" id="left" onclick="changeSlide(-1)">&#10094;</button>
+      
+        <div class="container-fluid" style="display: inline-block;padding: 0;">
+          <img class="img" src="https://www.bugatti.com/fileadmin/_processed_/sei/p54/se-image-fab578a441f3f4b14083e593bed52f80.webp" onclick="setAuto();">
+          <img class="img" src="https://www.bugatti.com/fileadmin/_processed_/sei/p54/se-image-f5d0c1c6b06198a79a578087a1a56646.webp" onclick="setAuto();">
+          <img class="img" src="https://www.bugatti.com/fileadmin/_processed_/sei/p54/se-image-3c47586f0500c207e62a2b4f4a402d8f.webp" onclick="setAuto();">
+          <img class="img" src="https://www.bugatti.com/fileadmin/_processed_/sei/p54/se-image-4058801770638446d56d77d87d7bd008.webp" onclick="setAuto();">
+        </div>
+        <div class="div">
+            <div class="interior-content">
+              <h3 style="color: white;justify-content: center;display: flex;font-weight: bold;margin-bottom: 4%;">TRUE LUXURY:AN INNER VALUE</h3>
+              <p style="color: #ffffffb3;font-size: 18px;">Mirroring the CHIRON´s exterior signature line, the LED illumination in the distinctive C-line form separates the two seats, and reveals the stunning functional beauty of the interior. The cockpit layout of the CHIRON gives the pilot all the necessary information within his range of vision.</p>
+            </div>
+          </div>
+        
+        <button class="next" id="right" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+         
+        
+      <script>
+            var slideIndex = 1;
+        show(slideIndex);
+      
+        var auto = true;
+      
+        setInterval(function(){ 
+          if(auto){
+            show(slideIndex);
+            if(slideIndex > 4) 
+              slideIndex = 1;
+            slideIndex++;
+            console.log(slideIndex);
+          } 
+        }, 3000);
+      
+        function setAuto(){
+            auto = !auto;
+        }
+      
+        function changeSlide(n) {
+          show(slideIndex += n);
+        }
+      
+        function show(n) {
+          var i;
+          var x = document.getElementsByClassName("img");
+          if (n > x.length) 
+            slideIndex = 1;
+          if (n < 1) 
+            slideIndex = x.length;
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";  
+          }
+          x[slideIndex-1].style.display = "block";  
+        }
+      </script>
+  </div>
+  <div class="parallax-item">
+    
+  </div>
+  <div class="parallax-item">
+    
+  </div>
+</section>
+    
+    
+   
+    <!-- Jquery needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+<!-- Function used to shrink nav bar removing paddings and adding black background -->
+    <script>
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+                console.log("OK");
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+    </script>
+    <script src="style.js"></script>
+</body>
+</html>
+
+
